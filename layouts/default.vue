@@ -134,7 +134,7 @@ ul{
 		}
 
     div.card-footer{
-      margin-top: 3px;
+      margin-top: 5px;
     }
 
 @media(max-width: 992px){

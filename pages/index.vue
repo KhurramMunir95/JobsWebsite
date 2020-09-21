@@ -30,23 +30,97 @@
 
     <div class="row mt-4">
       <div class="col-lg-3">
+        {{newCity}}
         <ul class="left">
           <li>
             <template>
-              <div class="form-check">
-                <input id="defaultCheck1" class="form-check-input" type="checkbox" value="Full Time" v-model="city" @change='Find' />
-                <label for="defaultCheck1" class="form-check-label text-primary" aria-checked="true">Full time</label>
+              <div class="form-check mb-4">
+                <input
+                  id="defaultCheck1"
+                  class="form-check-input"
+                  type="checkbox"
+                  value="Full Time"
+                  v-model="city"
+                  @change="Find"
+                />
+                <label
+                  for="defaultCheck1"
+                  class="form-check-label"
+                  aria-checked="true"
+                  style="color:#334680;  font-weight: 400;"
+                >Full time</label>
               </div>
             </template>
           </li>
-          <li class="text-secondary font-weight-bolder">LOCATION</li>
+          <li class="font-weight-bolder ml-0" style="color:#A5A8B9;">LOCATION</li>
           <li>
-            <input type="text" class="form-control" v-model="searchvalue" @keyup.enter="Find"/>
+            <div class="input-group mb-3 mt-4">
+  <div class="input-group-prepend">
+    <span class="input-group-text bg-light border-0" id="basic-addon1"><font-awesome-icon icon="globe-americas" style="color:#A5A8B9;"/></span>
+  </div>
+  <input type="text" class="form-control border-0 form-control-lg" placeholder="City, state, zip code or country" aria-label="Username" aria-describedby="basic-addon1" style="font-size:10px;" v-model="searchvalue" @keyup.enter="Find">
+</div>
           </li>
-          <template v-for="(position, id) in cities">
-            <li :key="id">
-              <!-- Cities  -->
-              <div class="form-check">
+          <!-- Cities  -->
+          <li>
+            <div class="form-check">
+              <input
+                id="defaultCheck1"
+                class="form-check-input"
+                value="Remote"
+                type="checkbox"
+                v-model="city"
+                @change="Find"
+              />
+              <label for="defaultCheck1" class="form-check-label">Remote</label>
+            </div>
+          </li>
+          <li>
+            <div class="form-check">
+              <input
+                id="defaultCheck1"
+                class="form-check-input"
+                value="Berlin"
+                type="checkbox"
+                v-model="city"
+                @change="Find"
+              />
+              <label for="defaultCheck1" class="form-check-label">Berlin</label>
+            </div>
+          </li>
+
+          <li>
+            <div class="form-check">
+              <input
+                id="defaultCheck1"
+                class="form-check-input"
+                value="Amsterdam"
+                type="checkbox"
+                v-model="city"
+                @change="Find"
+              />
+              <label for="defaultCheck1" class="form-check-label">Amsterdam</label>
+            </div>
+          </li>
+
+          <li>
+            <div class="form-check">
+              <input
+                id="defaultCheck1"
+                class="form-check-input"
+                value="Munich"
+                type="checkbox"
+                v-model="city"
+                @change="Find"
+              />
+              <label for="defaultCheck1" class="form-check-label">Munich</label>
+            </div>
+          </li>
+
+          <!-- <template v-for="(position, id) in cities">
+          <li :key="id">-->
+          <!-- Cities  -->
+          <!-- <div class="form-check">
                 <input
                   id="defaultCheck1"
                   class="form-check-input"
@@ -56,9 +130,9 @@
                   @change="Find"
                 />
                 <label for="defaultCheck1" class="form-check-label">{{position.location}}</label>
-              </div>
-            </li>
-          </template>
+          </div>-->
+          <!-- </li>
+          </template>-->
         </ul>
         <!-- <h6 class="mt-3 text-secondary">LOCATION</h6> -->
       </div>
@@ -68,20 +142,29 @@
           <div class="card-header d-inline-flex border-0">
             <img :src="job.company_logo" alt="logo" class="img-fluid" />
             <ul>
-              <li><nuxt-link
-            @click.native="details(job)"
-            to
-            class="font-weight-bold text-primary"
-          >{{job.company}}</nuxt-link></li>
-              <li><h6>{{job.title}}</h6></li>
+              <li>
+                <nuxt-link
+                  @click.native="details(job)"
+                  to
+                  class="font-weight-bold text-primary"
+                >{{job.company}}</nuxt-link>
+              </li>
+              <li>
+                <h6>{{job.title}}</h6>
+              </li>
             </ul>
-   
           </div>
           <div class="card-footer">
             <span class="box float-left">{{job.type}}</span>
-            <span class="text-secondary font-weight-bolder" id="bottom">&emsp;<font-awesome-icon icon="clock" />&nbsp;{{moment(job.created_at).fromNow()}}</span>
-            <span class="text-secondary font-weight-bolder" id="bottom"><font-awesome-icon icon="globe-americas" />&nbsp;{{job.location}}</span>
-                
+            <span class="text-secondary font-weight-bolder" id="bottom">
+              &emsp;
+              <font-awesome-icon icon="clock" />
+              &nbsp;{{moment(job.created_at).fromNow()}}
+            </span>
+            <span class="text-secondary font-weight-bolder" id="bottom">
+              <font-awesome-icon icon="globe-americas" />
+              &nbsp;{{job.location}}
+            </span>
           </div>
         </div>
       </div>
@@ -94,7 +177,7 @@
 <script>
 const axios = require("axios");
 import Data from "../store/Data";
-var moment = require('moment');
+var moment = require("moment");
 export default {
   data() {
     return {
@@ -102,34 +185,34 @@ export default {
       searchvalue: Data.data.searchvalue,
       jobs: Data.data.jobs,
       getJobs: Data.methods.getjobs,
-      city:[]
+      city: [],
+      cars: ["honda", "nissan", "audi", "honda"],
+      filteredCity: [],
+      newCity: "",
     };
   },
-  
+
   methods: {
-    remove:function(){
-      if(this.city.length > 1)
-      {
-        this.searchvalue ==''
-        this.city.splice(0,1)
-        
+    remove: function () {
+      if (this.city.length > 1) {
+        this.searchvalue == "";
+        this.city.splice(0, 1);
       }
-      
     },
     Find: function () {
-      this.remove()
+      this.remove();
 
       this.$router.push({
         path: "/",
         query: { description: this.searchvalue },
-      })
-      
-      if(this.city!==''){
-         this.$router.push({
-        path: "/",
-        query: { description: this.city },
-      })
-      // this.searchvalue = ''
+      });
+
+      if (this.city !== "") {
+        this.$router.push({
+          path: "/",
+          query: { description: this.city },
+        });
+        // this.searchvalue = ''
       }
     },
     details: function (job) {
@@ -138,34 +221,28 @@ export default {
   },
   computed: {
     fetch: function () {
-          if (this.searchvalue == ""  && this.city=='') {
-            return this.jobs;
-            this.$router.push({ path: "/" });
-            
+      if (this.searchvalue == "" && this.city == "") {
+        return this.jobs;
+        this.$router.push({ path: "/" });
+      } else {
+        try {
+          if (this.searchvalue !== "" || this.city !== "") {
+            return this.jobs.filter(
+              (job) =>
+                job.location == this.$route.query.description ||
+                job.type == this.$route.query.description
+            );
           }
-    else{
-
-    
-      try {
-        if (this.searchvalue !== "" || this.city!=='') {
-          return this.jobs.filter(
-            (job) =>
-              job.location ==
-                this.$route.query.description ||
-              job.type ==
-                this.$route.query.description
-          );
-        } 
-      } catch (error) {
-        console.log("Error: ", error);
-      }
+        } catch (error) {
+          console.log("Error: ", error);
+        }
       }
     },
     cities: function () {
-      var cities
-      cities = this.jobs.filter((job) => job)
-      return cities
-      
+      var cities;
+      cities = this.jobs.filter((job) => job);
+
+      return cities;
     },
   },
   mounted() {
@@ -206,7 +283,7 @@ export default {
   padding-top: 15px;
 }
 
-span.box{
+span.box {
   border: 1px solid #394680;
   color: #394680;
   padding: 5px;
@@ -214,7 +291,6 @@ span.box{
   font-weight: bolder;
   font-size: 14px;
   position: relative;
-  left:130px;
+  left: 130px;
 }
-
 </style>
