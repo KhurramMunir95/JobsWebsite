@@ -140,7 +140,6 @@
                 @change="Find"
               />
               <label for="defaultCheck1" class="form-check-label">Munich</label>
-              {{ this.searchbottom }}
             </div>
           </li>
 
