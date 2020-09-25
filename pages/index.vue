@@ -1,4 +1,5 @@
 <template>
+  <!-- Start container -->
   <div class="container">
     <h1 class="title text-left">
       <span class="font-weight-bold text-primary">Github</span> Jobs
@@ -32,8 +33,8 @@
     <!-- End Header Row -->
 
     <!-- Start Body Row -->
-
     <div class="row mt-4">
+      <!-- Start First Col -->
       <div class="col-lg-3">
         <ul class="left">
           <li>
@@ -160,9 +161,10 @@
           <!-- </li>
           </template>-->
         </ul>
-        <!-- <h6 class="mt-3 text-secondary">LOCATION</h6> -->
       </div>
+      <!-- End First Col -->
 
+      <!-- Start Second Col -->
       <div class="col-lg-8">
         <div
           class="card"
@@ -235,11 +237,15 @@
             </li>
           </ul>
         </nav>
-      </div>
 
-      <!-- End Body Row -->
+        <!-- Footer -->
+        <div class="footer text-center">Khurram Munir @ DevChallenges.io</div>
+      </div>
+      <!-- End Second Col -->
     </div>
+    <!-- End Body Row -->
   </div>
+  <!-- End container -->
 </template>
 
 <script>

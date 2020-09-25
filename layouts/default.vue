@@ -153,7 +153,12 @@ span.job-type {
   position: relative;
   left: 10px;
 }
-
+div.footer{
+  position: relative;
+  font-weight: bolder;
+  top: 40px;
+  color: rgba(94, 92, 92, 0.719);
+}
 @media (max-width: 992px) {
   .search {
     width: 90%;
