@@ -187,18 +187,21 @@
           </div>
           <div class="card-footer">
             <span class="box float-left">{{ job.type }}</span>
-            <span class="text-secondary font-weight-bolder" id="bottom">
+            <span class="text-secondary font-weight-bolder time" id="bottom">
               &emsp;
               <font-awesome-icon icon="clock" />
               &nbsp;{{ moment(job.created_at).fromNow() }}
             </span>
-            <span class="text-secondary font-weight-bolder" id="bottom">
+            <span
+              class="text-secondary font-weight-bolder job-location"
+              id="bottom"
+            >
               <font-awesome-icon icon="globe-americas" />
               &nbsp;{{ job.location }}
             </span>
           </div>
         </div>
-        <nav aria-label="Page navigation">
+        <nav aria-label="Page navigation" class="paging">
           <ul class="pagination justify-content-end pagination-sm">
             <li :class="this.start !== 0 ? 'page-item' : 'page-item disabled'">
               <a class="page-link" @click="prevPage" aria-label="Previous">
@@ -240,14 +243,12 @@
 </template>
 
 <script>
-const axios = require("axios");
 import Data from "../store/Data";
-var moment = require("moment");
 
 export default {
   data() {
     return {
-      moment: moment,
+      moment: Data.data.moment,
       searchvalue: Data.data.searchvalue,
       searchbottom: "",
       jobs: Data.data.jobs,
@@ -393,16 +394,6 @@ export default {
   padding-top: 15px;
 }
 
-span.box {
-  border: 1px solid #394680;
-  color: #394680;
-  padding: 5px;
-  border-radius: 5px;
-  font-weight: bolder;
-  font-size: 14px;
-  position: relative;
-  left: 130px;
-}
 li.page-item {
   margin: 4px;
 }

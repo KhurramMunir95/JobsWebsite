@@ -1,19 +1,19 @@
-const Data={
-    data:{
-        searchvalue:'',
-        jobs:[]
+var moment = require("moment");
+const axios = require("axios");
+const Data = {
+    data: {
+        searchvalue: '',
+        jobs: [],
+        moment: moment
     },
-    methods:{
-        getjobs:function(){
+    methods: {
+        getjobs: function () {
             axios.get("https://jobs.github.com/positions.json")
-            .then((response) => {
-                this.jobs = response.data;
-            })      
+                .then((response) => {
+                    this.jobs = response.data;
+                })
         }
     }
 }
 
-const axios = require("axios");
-
 export default Data;
-

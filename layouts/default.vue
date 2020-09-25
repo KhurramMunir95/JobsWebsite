@@ -5,20 +5,13 @@
 </template>
 
 <style>
-body{
-  background-color:#E7E4E3;
+body {
+  background-color: #e7e4e3;
 }
 
 html {
-  font-family:
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -64,108 +57,152 @@ html {
   background-color: #35495e;
 }
 
-.search{
+.search {
   background-image: url(../Images/backgroundImg.png);
   border-radius: 0;
   padding: 30px;
   background-size: cover;
 }
 
-img{
+img {
   max-width: 200px;
   min-width: 50px;
   height: 140px;
   /* height: auto; */
 }
 
-ul.left li{
+ul.left li {
   line-height: 20px;
   margin: 10px;
 }
 
-ul{
-			list-style-type: none;
-      text-align: left;
-		}
+ul {
+  list-style-type: none;
+  text-align: left;
+}
 
-		ul li {
-			line-height: 30px;
-      /* clear: both; */
-      display: inline;
-		}
-    div.card-footer{
-      /* top: -60px; */
-      position: relative;
-      border: none;
-    }
-    div.card-footer span {
-      font-size: 12px;
-      float: right;
-    }
+ul li {
+  line-height: 30px;
+  /* clear: both; */
+  display: inline;
+}
+div.card-footer {
+  /* top: -60px; */
+  position: relative;
+  border: none;
+}
+div.card-footer span {
+  font-size: 12px;
+  float: right;
+}
 
-    div.card{
-      width: 100%;
-      margin: 20px;
-      height: auto;
-      padding: 0;
-    }  
+div.card {
+  width: 100%;
+  margin: 20px;
+  height: auto;
+  padding: 0;
+}
 
-		div.card-header{
-			padding: 10px;
-      height: 60px;
-      /* max-width: 100%; */
-      
-		}
+div.card-header {
+  padding: 10px;
+  height: 60px;
+  /* max-width: 100%; */
+}
 
-		div.card-header img{
-			max-width: 100px;
-      height: 100px;
-      flex-shrink: 0;
-      object-fit: contain;
-		}
-    div.bottom{
-      display: inline-flex;
-      margin-top: -20px;
-    }
-    div.bottom span{
-			font-size: 12px;
-			float: right;
-		
-		}
+div.card-header img {
+  max-width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+div.bottom {
+  display: inline-flex;
+  margin-top: -20px;
+}
+div.bottom span {
+  font-size: 12px;
+  float: right;
+}
 
-    div.card-footer{
-      margin-top: 5px;
-    }
+div.card-footer {
+  margin-top: 5px;
+}
 
-@media(max-width: 992px){
-  .search{
+span.box {
+  border: 1px solid #394680;
+  color: #394680;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bolder;
+  font-size: 14px;
+  position: relative;
+  left: 130px;
+}
+
+div.top {
+  display: inline-flex;
+}
+
+span.job-type {
+  border: 1px solid #394680;
+  color: #394680;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bolder;
+  font-size: 14px;
+  position: relative;
+  left: 10px;
+}
+
+@media (max-width: 992px) {
+  .search {
     width: 90%;
     margin: auto;
   }
-  
- body{
-   margin-right: 20px;
- }
 
- h6{
-   font-size: 14px;;
- }
+  body {
+    margin-right: 20px;
+  }
 
- div.card-footer{
-   margin-top: 24px;
- }
- 
- 
- span#bottom{
-  padding: 10px;
-  margin-top: 30px;
-  clear:left;
-  text-align: left;
-  float: right;
-  width:130px;
-  object-fit: contain;
+  h6 {
+    font-size: 14px;
+  }
+
+  div.card-footer {
+    margin-top: 24px;
+  }
+
+  span#bottom {
+    padding: 10px;
+    margin-top: 30px;
+    clear: left;
+    text-align: left;
+    float: right;
+    width: 130px;
+    object-fit: contain;
+    position: relative;
+    left: -10px;
+  }
+
+  span.job-location {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  span.time,
+  h5.job-title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  div.top {
+    display: block;
+  }
+
+  span.job-type {
+    left: 0;
   }
 }
-
-
 </style>
