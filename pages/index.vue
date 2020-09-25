@@ -2,7 +2,7 @@
   <!-- Start container -->
   <div class="container">
     <h1 class="title text-left">
-      <span class="font-weight-bold text-primary">Github</span> Jobs
+      <span class="font-weight-bold">Github</span> Jobs
     </h1>
     <!-- Start Header Row -->
     <div class="row justify-content-center">
