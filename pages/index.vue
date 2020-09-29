@@ -277,16 +277,15 @@ export default {
     },
     Find: function () {
       this.remove();
-
       if (this.searchvalue !== "") {
         this.$router.push({
           path: "/",
-          query: { description: this.searchvalue },
+          query: { description: this.searchvalue[0].toUpperCase() + this.searchvalue.slice(1,this.searchvalue.length) },
         });
       } else if (this.searchbottom !== "") {
         this.$router.push({
           path: "/",
-          query: { description: this.searchbottom },
+          query: { description: this.searchbottom[0].toUpperCase() + this.searchbottom.slice(1,this.searchbottom.length) },
         });
       }
 
@@ -296,6 +295,7 @@ export default {
           query: { description: this.city },
         });
       }
+
     },
     details: function (job) {
       this.$router.push({ path: "/jobsdetails", query: { Id: job.id } });
@@ -323,17 +323,18 @@ export default {
         this.start = this.end - 5;
         this.pageNo++;
       }
-    },
+    }
   },
   computed: {
-    fetch: function () {
+    fetch:function () {
       if (
         this.searchvalue == "" &&
         this.city == "" &&
         this.searchbottom == ""
       ) {
-        return this.jobs;
         this.$router.push({ path: "/" });
+        return this.jobs;
+        
       } else {
         try {
           this.start = 0;
@@ -364,7 +365,7 @@ export default {
   },
   mounted() {
     this.getJobs();
-  },
+  }
 };
 </script>
 

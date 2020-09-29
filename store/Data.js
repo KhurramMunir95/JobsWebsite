@@ -8,7 +8,7 @@ const Data = {
     },
     methods: {
         getjobs: function () {
-            axios.get("https://jobs.github.com/positions.json")
+            axios.get("https://cors-anywhere.herokuapp.com/https://jobs.github.com/positions.json")
                 .then((response) => {
                     this.jobs = response.data;
                 })
