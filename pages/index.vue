@@ -174,7 +174,7 @@
           <div class="card-header d-inline-flex border-0">
             <img :src="job.company_logo" alt="logo" class="img-fluid" />
             <ul>
-              <li>
+              <li class="job-company">
                 <nuxt-link
                   @click.native="details(job)"
                   to
@@ -183,7 +183,7 @@
                 >
               </li>
               <li>
-                <h6>{{ job.title }}</h6>
+                <h6 class="job-title">{{ job.title }}</h6>
               </li>
             </ul>
           </div>
